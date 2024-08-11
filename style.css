@@ -66,6 +66,9 @@ th {
     background-color: #f8f8f8;
 }
 
+#nutritionOptions label{
+    padding: 6px;
+}
 
 /* Responsive design */
 @media (max-width: 768px) {
@@ -79,6 +82,10 @@ th {
         height: 70vh;
         overflow: auto;
     }
+    #nutritionOptions label{
+        padding: 7,99px;
+    }
+
 }
 
 @media (max-width: 480px) {
@@ -95,5 +102,8 @@ th {
         max-width: 100%;
         height: 50vh;
         overflow: auto;
+    }
+    #nutritionOptions label{
+        padding: 8px;
     }
 }
