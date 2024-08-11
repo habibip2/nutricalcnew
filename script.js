@@ -311,5 +311,3 @@ function saveToPDF() {
 
 // Tambahkan event listener ke tombol save PDF
 document.getElementById('savePdfBtn').addEventListener('click', saveToPDF);
-
-
