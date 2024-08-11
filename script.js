@@ -35,7 +35,7 @@ function addRow() {
 
 // Fungsi untuk menambahkan 7 baris pertama secara otomatis
 function addInitialRows() {
-    for (let i = 0; i < 9; i++) {
+    for (let i = 0; i < 7; i++) {
         addRow();
     }
 }
@@ -222,3 +222,94 @@ document.getElementById('addRowBtn').addEventListener('click', addRow);
 document.addEventListener('DOMContentLoaded', function() {
     addInitialRows();
 });
+
+// Fungsi untuk memperbarui visibilitas kolom berdasarkan checkbox
+function updateColumnVisibility() {
+    const checkboxes = document.querySelectorAll('.nutritionCheckbox');
+    checkboxes.forEach(checkbox => {
+        const nutrient = checkbox.getAttribute('data-nutrient');
+        const display = checkbox.checked ? '' : 'none';
+
+        // Sembunyikan atau tampilkan kolom di tabel
+        document.querySelectorAll(`.${nutrient}Result`).forEach(cell => {
+            cell.style.display = display;
+        });
+
+        // Sembunyikan atau tampilkan total di container
+        document.getElementById(`total${capitalizeFirstLetter(nutrient)}`).parentElement.style.display = display;
+    });
+}
+
+// Fungsi untuk mengkapitalisasi huruf pertama
+function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
+// Perbarui tampilan ketika checkbox diubah
+document.querySelectorAll('.nutritionCheckbox').forEach(checkbox => {
+    checkbox.addEventListener('change', updateColumnVisibility);
+});
+
+// Panggil fungsi ini pada awal agar kolom yang tidak dicentang tidak muncul
+updateColumnVisibility();
+
+
+
+// Fungsi untuk menghasilkan PDF dalam orientasi landscape
+function saveToPDF() {
+    const { jsPDF } = window.jspdf;
+
+    // Buat dokumen PDF baru dengan orientasi landscape
+    const doc = new jsPDF({ orientation: 'landscape' });
+
+    // Tambahkan judul
+    doc.setFontSize(16);
+    doc.text('Hasil Perhitungan Gizi', 10, 10);
+
+    // Ambil semua baris dari tabel
+    const rows = document.querySelectorAll('#productTable tbody tr');
+    
+    // Set header dan data yang dipilih
+    const selectedNutrients = [];
+    document.querySelectorAll('.nutritionCheckbox').forEach(checkbox => {
+        if (checkbox.checked) {
+            selectedNutrients.push(checkbox.getAttribute('data-nutrient'));
+        }
+    });
+
+    // Sesuaikan header berdasarkan nutrisi yang dipilih
+    let y = 20;
+    doc.setFontSize(12);
+    selectedNutrients.forEach((nutrient, index) => {
+        const header = nutrient.charAt(0).toUpperCase() + nutrient.slice(1);
+        doc.text(header, 10 + index * 40, y);  // Sesuaikan posisi header agar sesuai dalam landscape
+    });
+
+    // Menambahkan data dari tabel ke PDF
+    y += 10;
+    rows.forEach(row => {
+        let x = 10;
+        selectedNutrients.forEach(nutrient => {
+            const value = row.querySelector(`.${nutrient}Result`).textContent;
+            doc.text(value.toString(), x, y);  // Sesuaikan posisi data agar sesuai dalam landscape
+            x += 40;
+        });
+        y += 10;
+    });
+
+    // Tambahkan total ke PDF hanya untuk nutrisi yang dipilih
+    y += 10;
+    selectedNutrients.forEach((nutrient, index) => {
+        const total = document.getElementById(`total${capitalizeFirstLetter(nutrient)}`).textContent;
+        doc.text(`Total ${capitalizeFirstLetter(nutrient)}: ${total}`, 10 + index * 60, y);
+        y += 10;
+    });
+
+    // Simpan PDF
+    doc.save('hasil_perhitungan_nutrisi_landscape.pdf');
+}
+
+// Tambahkan event listener ke tombol save PDF
+document.getElementById('savePdfBtn').addEventListener('click', saveToPDF);
+
+
