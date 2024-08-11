@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hitung Kandungan Gizi</title>
+    <title>Responsive Data Table with Calculations</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -12,6 +12,29 @@
     </div>
     <div class="container">
         <div class="main">
+            <div id="nutritionOptions">
+                <h3>Tampilkan di PDF</h3>
+                <label><input type="checkbox" class="nutritionCheckbox" data-nutrient="energy" checked> Energi</label>
+                <label><input type="checkbox" class="nutritionCheckbox" data-nutrient="protein" checked> Protein</label>
+                <label><input type="checkbox" class="nutritionCheckbox" data-nutrient="fat" checked> Lemak</label>
+                <label><input type="checkbox" class="nutritionCheckbox" data-nutrient="fiber" checked> Serat</label>
+                <label><input type="checkbox" class="nutritionCheckbox" data-nutrient="carbs" checked> Karbohidrat</label>
+                <label><input type="checkbox" class="nutritionCheckbox" data-nutrient="carbon" checked> Abu</label>
+                <label><input type="checkbox" class="nutritionCheckbox" data-nutrient="calcium" checked> Kalsium</label>
+                <label><input type="checkbox" class="nutritionCheckbox" data-nutrient="phospor" checked> Fosfor</label>
+                <label><input type="checkbox" class="nutritionCheckbox" data-nutrient="iron" checked> Besi</label>
+                <label><input type="checkbox" class="nutritionCheckbox" data-nutrient="sodium" checked> Natrium</label>
+                <label><input type="checkbox" class="nutritionCheckbox" data-nutrient="potassium" checked> Kalium</label>
+                <label><input type="checkbox" class="nutritionCheckbox" data-nutrient="cuprum" checked> Tembaga</label>
+                <label><input type="checkbox" class="nutritionCheckbox" data-nutrient="zinc" checked> Zinc</label>
+                <label><input type="checkbox" class="nutritionCheckbox" data-nutrient="retinol" checked> Retinol</label>
+                <label><input type="checkbox" class="nutritionCheckbox" data-nutrient="bkar" checked> Betakaroten</label>
+                <label><input type="checkbox" class="nutritionCheckbox" data-nutrient="kartot" checked> KarTotal</label>
+                <label><input type="checkbox" class="nutritionCheckbox" data-nutrient="thamin" checked> Thamin</label>
+                <label><input type="checkbox" class="nutritionCheckbox" data-nutrient="riboflavin" checked> Riboflavin</label>
+                <label><input type="checkbox" class="nutritionCheckbox" data-nutrient="niasin" checked> Niasin</label>
+                <label><input type="checkbox" class="nutritionCheckbox" data-nutrient="VitC" checked> Vitamin C</label>
+            </div>            
             <table id="productTable">
                 <thead>
                     <tr>
@@ -44,7 +67,7 @@
                 </tbody>
             </table>
             <button id="addRowBtn">Tambah Baris</button>
-            
+            <button id="savePdfBtn">Simpan sebagai PDF</button>            
         </div>
         <div class="sidebar">
             <div class="totalscontainer">
@@ -68,11 +91,10 @@
                 <p>Total Riboflavin: <span id="totalRiboflavin">0</span> mg</p>
                 <p>Total Niasin: <span id="totalNiasin">0</span> mg</p>
                 <p>Total Vitamin C: <span id="totalVitaminC">0</span> mg</p>
-                <p>Total Kode TKPI: <span id="Code">0</span> !</p>
-                <p>Berat Kotor: <span id="BBK">0</span> g</p>
               </div>
         </div>
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script src="data.js"></script>
     <script src="script.js"></script>
 </body>
