@@ -8,8 +8,8 @@ function addRow() {
         <td class="energyResult"></td>
         <td class="proteinResult"></td>
         <td class="fatResult"></td>
-        <td class="fiberResult"></td>
         <td class="carbsResult"></td>
+        <td class="fiberResult"></td>
         <td class="CarbonResult"></td>
         <td class="CalciumResult"></td>
         <td class="PhosporResult"></td>
@@ -45,8 +45,8 @@ function calculateAndDisplay() {
     let totalEnergy = 0;
     let totalProtein = 0;
     let totalFat = 0;
-    let totalFiber = 0;
     let totalCarbs = 0;
+    let totalFiber = 0;
     let totalCarbon = 0;
     let totalCalcium = 0;
     let totalPhospor = 0;
@@ -74,8 +74,8 @@ function calculateAndDisplay() {
             row.querySelector('.energyResult').textContent = '';
             row.querySelector('.proteinResult').textContent = '';
             row.querySelector('.fatResult').textContent = '';
-            row.querySelector('.fiberResult').textContent = '';
             row.querySelector('.carbsResult').textContent = '';
+            row.querySelector('.fiberResult').textContent = '';
             row.querySelector('.CarbonResult').textContent = '';
             row.querySelector('.CalciumResult').textContent = '';
             row.querySelector('.PhosporResult').textContent = '';
@@ -101,8 +101,8 @@ function calculateAndDisplay() {
             const energy = (productData.energi * productWeight) / 100;
             const protein = (productData.protein * productWeight) / 100;
             const fat = (productData.lemak * productWeight) / 100;
-            const fiber = (productData.serat * productWeight) / 100;
             const carbs = (productData.kh * productWeight) / 100;
+            const fiber = (productData.serat * productWeight) / 100;
             const carbon = (productData.abu * productWeight) / 100;
             const calcium = (productData.kalsium * productWeight) / 100;
             const phospor = (productData.fosfor * productWeight) / 100;
@@ -125,8 +125,8 @@ function calculateAndDisplay() {
             row.querySelector('.energyResult').textContent = energy.toFixed(2);
             row.querySelector('.proteinResult').textContent = protein.toFixed(2);
             row.querySelector('.fatResult').textContent = fat.toFixed(2);
-            row.querySelector('.fiberResult').textContent = fiber.toFixed(2);
             row.querySelector('.carbsResult').textContent = carbs.toFixed(2);
+            row.querySelector('.fiberResult').textContent = fiber.toFixed(2);
             row.querySelector('.CarbonResult').textContent = carbon.toFixed(2);
             row.querySelector('.CalciumResult').textContent = calcium.toFixed(2);
             row.querySelector('.PhosporResult').textContent = phospor.toFixed(2);
@@ -147,8 +147,8 @@ function calculateAndDisplay() {
             totalEnergy += energy;
             totalProtein += protein;
             totalFat += fat;
-            totalFiber += fiber;
             totalCarbs += carbs;
+            totalFiber += fiber;
             totalCarbon += carbon;
             totalCalcium += calcium;
             totalPhospor += phospor;
@@ -170,8 +170,8 @@ function calculateAndDisplay() {
             row.querySelector('.energyResult').textContent = '';
             row.querySelector('.proteinResult').textContent = '';
             row.querySelector('.fatResult').textContent = '';
-            row.querySelector('.fiberResult').textContent = '';
             row.querySelector('.carbsResult').textContent = '';
+            row.querySelector('.fiberResult').textContent = '';
             row.querySelector('.CarbonResult').textContent = '';
             row.querySelector('.CalciumResult').textContent = '';
             row.querySelector('.PhosporResult').textContent = '';
@@ -194,8 +194,8 @@ function calculateAndDisplay() {
     document.getElementById('totalEnergy').textContent = totalEnergy.toFixed(2);
     document.getElementById('totalProtein').textContent = totalProtein.toFixed(2);
     document.getElementById('totalFat').textContent = totalFat.toFixed(2);
-    document.getElementById('totalFiber').textContent = totalFiber.toFixed(2);
     document.getElementById('totalCarbs').textContent = totalCarbs.toFixed(2);
+     document.getElementById('totalFiber').textContent = totalFiber.toFixed(2);
     document.getElementById('totalCarbon').textContent = totalCarbon.toFixed(2);
     document.getElementById('totalCalcium').textContent = totalCalcium.toFixed(2);
     document.getElementById('totalPhospor').textContent = totalPhospor.toFixed(2);
