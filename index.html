@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Data Table with Calculations</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="navbar">
+        <h2>Hitung Kandungan Gizi</h2>
+    </div>
+    <div id="content-to-print" class="container">
+        <div class="main">
+            <table id="productTable">
+                <thead>
+                    <tr>
+                        <th>Nama Bahan</th>
+                        <th>Berat (g)</th>
+                        <th>Energi (kkal)</th>
+                        <th>Protein (g)</th>
+                        <th>Lemak (g)</th>
+                        <th>Serat (g)</th>
+                        <th>Karbohidrat (g)</th>
+                        <th>Abu (g)</th>
+                        <th>Kalsium (mg)</th>
+                        <th>Fosfor (mg)</th>
+                        <th>Besi (mg)</th>
+                        <th>Natrium (mg)</th>
+                        <th>Kalium (mg)</th>
+                        <th>Tembaga (mg)</th>
+                        <th>Zinc (mg)</th>
+                        <th>Retinol (mcg)</th>
+                        <th>Betakaroten (mcg)</th>
+                        <th>KarTotal (mcg)</th>
+                        <th>Thamin (mg)</th>
+                        <th>Riboflavin (mg)</th>
+                        <th>Niasin (mg)</th>
+                        <th>Vitamin C (mg)</th>
+                    </tr>
+                </thead>
+                <tbody id="productTableBody">
+                    <!-- Baris-baris produk akan ditambahkan di sini -->
+                </tbody>
+            </table>
+        
+            <button id="addRowBtn">Tambah Baris</button>
+            <button onclick="exportToPDF()">Cetak ke PDF</button>
+            <button onclick="exportToWord()">Cetak ke Word</button>
+            
+                        
+        </div>
+        <div class="sidebar">
+            <div class="totalscontainer">
+                <p>Total Energi: <span id="totalEnergy">0</span> kkal</p>
+                <p>Total Protein: <span id="totalProtein">0</span> g</p>
+                <p>Total Lemak: <span id="totalFat">0</span> g</p>
+                <p>Total Serat: <span id="totalFiber">0</span> g</p>
+                <p>Total Karbohidrat: <span id="totalCarbs">0</span> g</p>
+                <p>Total Abu: <span id="totalCarbon">0</span> g</p>
+                <p>Total Kalsium: <span id="totalCalcium">0</span> mg</p>
+                <p>Total Fosfor: <span id="totalPhospor">0</span> mg</p>
+                <p>Total Besi: <span id="totalIron">0</span> mg</p>
+                <p>Total Natrium: <span id="totalSodium">0</span> mg</p>
+                <p>Total Kalium: <span id="totalPotassium">0</span> mg</p>
+                <p>Total Tembaga: <span id="totalCuprum">0</span> mg</p>
+                <p>Total Zinc: <span id="totalZinc">0</span> mg</p>
+                <p>Total Retinol: <span id="totalRetinol">0</span> mcg</p>
+                <p>Total Betakaroten: <span id="totalBKar">0</span> mcg</p>
+                <p>Total KarTotal: <span id="totalKarTot">0</span> mcg</p>
+                <p>Total Thamin: <span id="totalThamin">0</span> mg</p>
+                <p>Total Riboflavin: <span id="totalRiboflavin">0</span> mg</p>
+                <p>Total Niasin: <span id="totalNiasin">0</span> mg</p>
+                <p>Total Vitamin C: <span id="totalVitaminC">0</span> mg</p>
+                <p>Total Kode TKPI: <span id="Code">0</span> !</p>
+                <p>Berat Kotor: <span id="BBK">0</span> g</p>
+              </div>
+        </div>
+    </div>
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
