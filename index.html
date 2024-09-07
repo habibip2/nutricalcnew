@@ -17,36 +17,25 @@
                     <tr>
                         <th>Nama Bahan</th>
                         <th>Berat (g)</th>
-                        <th>Energi (kkal)</th>
-                        <th>Protein (g)</th>
-                        <th>Lemak (g)</th>
-                        <th>Karbohidrat (g)</th>
-                        <th>Serat (g)</th>
-                        <th>Abu (g)</th>
-                        <th>Kalsium (mg)</th>
-                        <th>Fosfor (mg)</th>
-                        <th>Besi (mg)</th>
-                        <th>Natrium (mg)</th>
-                        <th>Kalium (mg)</th>
-                        <th>Tembaga (mg)</th>
-                        <th>Zinc (mg)</th>
-                        <th>Retinol (mcg)</th>
-                        <th>Betakaroten (mcg)</th>
-                        <th>KarTotal (mcg)</th>
-                        <th>Thamin (mg)</th>
-                        <th>Riboflavin (mg)</th>
-                        <th>Niasin (mg)</th>
-                        <th>Vitamin C (mg)</th>
+                        <!-- looping th -->
                     </tr>
                 </thead>
                 <tbody id="productTableBody">
                     <!-- Baris-baris produk akan ditambahkan di sini -->
                 </tbody>
             </table>
-        
-            <button id="addRowBtn">Tambah Baris</button>
-            <button onclick="exportToPDF()">Cetak ke PDF</button>
-            <button onclick="exportToWord()">Cetak ke Word</button>
+            
+            <div style="max-width: 400px;">
+                <button id="addRowBtn">Tambah Baris</button>
+                <button onclick="exportToPDF()">Cetak ke PDF</button>
+                <button onclick="exportToWord()">Cetak ke Word</button>
+                <h2>Toggle visibility</h2>
+                <div id="settings">
+                    <form name="settingsForm" class="setting-form">
+                        <!-- rendered 20 checkboxes here -->
+                    </form>
+                </div>
+            </div>
             
                         
         </div>
@@ -77,7 +66,9 @@
               </div>
         </div>
     </div>
-    <script src="data.js"></script>
+    <!-- <script src="data.js"></script> -->
+    <script src="./datas/checkboxes-data.js"></script>
+    <script src="./datas/data.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

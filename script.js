@@ -195,7 +195,7 @@ function calculateAndDisplay() {
     document.getElementById('totalProtein').textContent = totalProtein.toFixed(2);
     document.getElementById('totalFat').textContent = totalFat.toFixed(2);
     document.getElementById('totalCarbs').textContent = totalCarbs.toFixed(2);
-     document.getElementById('totalFiber').textContent = totalFiber.toFixed(2);
+    document.getElementById('totalFiber').textContent = totalFiber.toFixed(2);
     document.getElementById('totalCarbon').textContent = totalCarbon.toFixed(2);
     document.getElementById('totalCalcium').textContent = totalCalcium.toFixed(2);
     document.getElementById('totalPhospor').textContent = totalPhospor.toFixed(2);
@@ -219,7 +219,7 @@ function calculateAndDisplay() {
 document.getElementById('addRowBtn').addEventListener('click', addRow);
 
 // Tambahkan event listener ke baris awal
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     addInitialRows();
 });
 
@@ -271,3 +271,68 @@ function exportToWord() {
 
     document.body.removeChild(link);
 }
+
+function renderCheckboxes() {
+    const settingsForm = document.querySelector('.setting-form');
+
+    for (data of checkboxDatas) {
+        const formGroup = document.createElement('div');
+        formGroup.classList.add('form-group');
+
+        const inputLabel = document.createElement('label');
+        inputLabel.textContent = data.zat;
+        inputLabel.setAttribute('for', data.zat);
+
+        const input = document.createElement('input');
+        input.type = 'checkbox';
+        input.id = data.zat;
+        input.setAttribute('style', 'margin-left: 10px;')
+        input.classList.add(data.className)
+
+        formGroup.appendChild(inputLabel);
+        formGroup.appendChild(input);
+
+        settingsForm.appendChild(formGroup);
+
+        // add event listener if toggle
+        input.addEventListener('change', function() {
+            toggleVisibility(input)
+        })
+    }
+}
+
+function toggleVisibility(input) {
+    const productColumns = document
+        .querySelectorAll(`td[class=${input.classList[0]}]`)
+
+    const correspondingTh = document
+        .querySelector(`th[class=${input.classList[0]}]`)
+
+    for (data of productColumns) {
+        if (input.checked) {
+            data.style.display = 'none'
+            correspondingTh.style.display = 'none'
+
+            console.log(data)
+        }
+
+        else {
+            data.style.display = 'table-cell'
+            correspondingTh.style.display = 'table-cell'
+        }
+    }
+
+}
+
+function renderTh() {
+    for (data of checkboxDatas) {
+        const newTh = document.createElement('th')
+        newTh.classList.add(data.className)
+        newTh.textContent = data.headingName
+
+        document.querySelector('#productTable thead tr').appendChild(newTh)
+    }
+}
+
+renderTh()
+renderCheckboxes()

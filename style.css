@@ -104,3 +104,10 @@ th {
         overflow: auto;
     }
 }
+
+.setting-form {
+    display: grid;
+    gap: 10px;
+    margin-top: 10px;
+    grid-template-columns: 1fr 1fr 1fr;
+}
