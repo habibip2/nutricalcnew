@@ -1,3 +1,4 @@
+// import { jsPDF } from "jspdf"
 // Fungsi untuk menambahkan baris baru ke tabel
 function addRow() {
     const tableBody = document.getElementById('productTableBody');
@@ -224,31 +225,25 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 function exportToPDF() {
-    const { jsPDF } = window.jspdf;
-    const doc = new jsPDF({
-        orientation: 'landscape', // Orientasi landscape
-        unit: 'cm',
-        format: 'a4'
-    });
+    const productTable = document.getElementById('productTable')
+    window.html2canvas = html2canvas
 
-    // Ambil konten HTML yang ingin dicetak
-    var content = document.getElementById('content-to-print').innerHTML;
-
-    // Set margin
-    const margins = {
-        top: 3,
-        bottom: 4,
-        left: 3,
-        right: 3
-    };
-
-    // Tambahkan konten HTML ke PDF
-    doc.fromHTML(content, margins.left, margins.top, {
-        width: doc.internal.pageSize.width - margins.left - margins.right
-    });
-
-    // Simpan file PDF
-    doc.save('document.pdf');
+    let opt = {
+        filename: 'cv.pdf',
+        enableLinks: true,
+        image: { type: 'jpeg', quality: 0.98 },
+        pagebreak: {
+            mode: ['avoid-all', 'css', 'legacy']
+        },
+        html2canvas: {
+          useCORS: true,
+          letterRendering: true,
+          width: productTable.offsetWidth,
+          height: productTable.offsetHeight
+        },
+        jsPDF: { unit: 'mm', format: 'a4', orientation: 'landscape' },
+      }
+      html2pdf().set(opt).from(document.getElementById('productTable')).save()
 }
 
 function exportToWord() {
@@ -296,7 +291,7 @@ function renderCheckboxes() {
         settingsForm.appendChild(formGroup);
 
         // add event listener if toggle
-        input.addEventListener('change', function() {
+        input.addEventListener('change', function () {
             toggleVisibility(input)
         })
     }
