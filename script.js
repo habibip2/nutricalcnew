@@ -236,14 +236,14 @@ function exportToPDF() {
             mode: ['avoid-all', 'css', 'legacy']
         },
         html2canvas: {
-          useCORS: true,
-          letterRendering: true,
-          width: productTable.offsetWidth,
-          height: productTable.offsetHeight
+            useCORS: true,
+            letterRendering: true,
+            width: productTable.offsetWidth,
+            height: productTable.offsetHeight
         },
         jsPDF: { unit: 'mm', format: 'a4', orientation: 'landscape' },
-      }
-      html2pdf().set(opt).from(document.getElementById('productTable')).save()
+    }
+    html2pdf().set(opt).from(document.getElementById('productTable')).save()
 }
 
 function exportToWord() {
@@ -335,5 +335,35 @@ function renderTh() {
     }
 }
 
+function tableToExcel() {
+    let downloadLink;
+    const dataType = 'application/vnd.ms-excel';
+    const tableSelect = document.getElementById('productTable');
+    const tableHTML = tableSelect.outerHTML.replace(/ /g, '%20');
+
+    // Specify file name
+    let filename = 'download.xls';
+
+    // Create download link element
+    downloadLink = document.createElement("a");
+
+    document.body.appendChild(downloadLink);
+
+    if (navigator.msSaveOrOpenBlob) {
+        var blob = new Blob(['\ufeff', tableHTML], {
+            type: dataType
+        });
+        navigator.msSaveOrOpenBlob(blob, filename);
+    } else {
+        // Create a link to the file
+        downloadLink.href = 'data:' + dataType + ', ' + tableHTML;
+
+        // Setting the file name
+        downloadLink.download = filename;
+
+        //triggering the function
+        downloadLink.click();
+    }
+}
 renderTh()
 renderCheckboxes()
