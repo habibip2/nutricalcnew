@@ -288,6 +288,7 @@ function renderCheckboxes() {
         input.id = data.zat;
         input.setAttribute('style', 'margin-left: 10px;')
         input.classList.add(data.className)
+        input.classList.add(data.totalId)
 
         formGroup.appendChild(inputLabel);
         formGroup.appendChild(input);
@@ -308,10 +309,14 @@ function toggleVisibility(input) {
     const correspondingTh = document
         .querySelector(`th[class=${input.classList[0]}]`)
 
+    const totalReagent = document
+        .querySelector(`p #${input.classList[1]}`)
+
     for (data of productColumns) {
         if (input.checked) {
             data.style.display = 'none'
             correspondingTh.style.display = 'none'
+            totalReagent.parentElement.style.display = 'none'
 
             console.log(data)
         }
@@ -319,6 +324,7 @@ function toggleVisibility(input) {
         else {
             data.style.display = 'table-cell'
             correspondingTh.style.display = 'table-cell'
+            totalReagent.parentElement.style.display = 'table-cell'
         }
     }
 
