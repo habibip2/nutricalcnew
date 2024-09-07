@@ -1,113 +1,123 @@
 /* Import Google Font - Poppins */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
-    /* Resetting margin and padding */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+/* Resetting margin and padding */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-    background-color: #f4f4f4;
-    padding: 20px;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  background-color: #f4f4f4;
+  padding: 20px;
 }
 
 .container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
 }
 
-.main, .sidebar {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+.main,
+.sidebar {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 /* Sidebar */
 .sidebar {
-    flex: 1;
-    min-width: 250px;
-    max-width: 300px;
+  flex: 1;
+  min-width: 250px;
+  max-width: 300px;
 }
 
 /* Main content area */
 .main {
-    flex: 2;
-    min-width: 300px;
-    max-width: 960px;
-    height: 90vh;
-    overflow: auto;
+  flex: 2;
+  min-width: 300px;
+  max-width: 960px;
+  height: 90vh;
+  overflow: auto;
 }
 
 /* Table styles */
 .productTable {
-    width: 100%;
-    overflow-x: auto;
+  width: 100%;
+  overflow-x: auto;
 }
 
 table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-bottom: 20px;
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
 }
 
-th, td {
-    padding: 10px;
-    border: 1px solid #ddd;
-    text-align: left;
+th,
+td {
+  padding: 10px;
+  border: 1px solid #ddd;
+  text-align: left;
 }
 
 th {
-    background-color: #f8f8f8;
+  background-color: #f8f8f8;
 }
 
 @page {
-    margin-top: 3cm;
-    margin-bottom: 4cm;
-    margin-left: 3cm;
-    margin-right: 3cm;
-    size: landscape; /* Orientasi halaman landscape */
+  margin-top: 3cm;
+  margin-bottom: 4cm;
+  margin-left: 3cm;
+  margin-right: 3cm;
+  size: landscape; /* Orientasi halaman landscape */
 }
 
 /* Responsive design */
 @media (max-width: 768px) {
-    .container {
-        flex-direction: column;
-        gap: 10px;
-    }
+  .container {
+    flex-direction: column;
+    gap: 10px;
+  }
 
-    .main, .sidebar {
-        max-width: 100%;
-        height: 70vh;
-        overflow: auto;
-    }
+  .main,
+  .sidebar {
+    max-width: 100%;
+    height: 70vh;
+    overflow: auto;
+  }
 }
 
 @media (max-width: 480px) {
-    th, td {
-        padding: 8px;
-    }
+  th,
+  td {
+    padding: 8px;
+  }
 
-    .container {
-        display: grid;
-        gap: 10px;
-    }
+  .container {
+    display: grid;
+    gap: 10px;
+  }
 
-    .main, .sidebar {
-        max-width: 100%;
-        height: 50vh;
-        overflow: auto;
-    }
+  .main,
+  .sidebar {
+    max-width: 100%;
+    height: 50vh;
+    overflow: auto;
+  }
 }
 
 .setting-form {
-    display: grid;
-    gap: 10px;
-    margin-top: 10px;
-    grid-template-columns: 1fr 1fr 1fr;
+  display: grid;
+  gap: 10px;
+  margin-top: 10px;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+#productTable {
+  width: 595pt;
+  border: 1px solid #000;
 }
