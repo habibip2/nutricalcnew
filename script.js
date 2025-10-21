@@ -8,12 +8,12 @@ function addRow() {
 
     newRow.innerHTML = `
         <td>
-            <input type="text" class="productName" list="${datalistId}" placeholder="Ketik nama bahan...">
+            <input type="text" class="productName" list="${datalistId}" placeholder="">
             <datalist id="${datalistId}">
                 ${bddDatas.map(item => `<option value="${item.name}"></option>`).join('')}
             </datalist>
         </td>
-        <td><input type="number" class="productWeight" placeholder="Berat (g)"></td>
+        <td><input type="number" class="productWeight" placeholder=""></td>
         ${checkboxDatas.map(c => `<td class="${c.className}"></td>`).join('')}
     `;
 
@@ -371,3 +371,4 @@ function tableToExcel() {
 
 renderTh()
 renderCheckboxes()
+
